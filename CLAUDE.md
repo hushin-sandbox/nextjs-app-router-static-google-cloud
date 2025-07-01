@@ -34,8 +34,6 @@ npm run start    # プロダクションサーバー起動
 - `src/app/` - App Routerベースのページ構造
 - 深い階層ルーティングの検証用ページを含む
   - `/products/category/subcategory/`
-  - `/blog/2024/01/`
-  - `/docs/guide/advanced/`
 - `out/` - ビルド後の静的ファイル出力先
 
 ### パス設定
