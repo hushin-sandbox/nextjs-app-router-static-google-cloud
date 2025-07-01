@@ -1,0 +1,71 @@
+import Link from "next/link";
+
+export default function Home() {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold mb-8 text-center">Google Cloud Static Export テスト</h1>
+      
+      <div className="max-w-4xl mx-auto space-y-8">
+        <div className="bg-blue-50 p-6 rounded-lg">
+          <h2 className="text-2xl font-semibold mb-4">検証目的</h2>
+          <ul className="list-disc list-inside space-y-2">
+            <li>Google Cloud でのNext.js App Router static export検証</li>
+            <li>Cloud Storage + Cloud CDN構成での動作確認</li>
+            <li>階層の深いルーティングの動作確認</li>
+          </ul>
+        </div>
+
+        <div className="bg-green-50 p-6 rounded-lg">
+          <h2 className="text-2xl font-semibold mb-4">テストページ</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <h3 className="text-lg font-medium">製品系ページ</h3>
+              <ul className="space-y-1">
+                <li>
+                  <Link href="/products/" className="text-blue-600 hover:underline">
+                    /products/
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/products/category/" className="text-blue-600 hover:underline">
+                    /products/category/
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/products/category/subcategory/" className="text-blue-600 hover:underline">
+                    /products/category/subcategory/
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="space-y-2">
+              <h3 className="text-lg font-medium">その他のページ</h3>
+              <ul className="space-y-1">
+                <li>
+                  <Link href="/blog/2024/01/" className="text-blue-600 hover:underline">
+                    /blog/2024/01/
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/docs/guide/advanced/" className="text-blue-600 hover:underline">
+                    /docs/guide/advanced/
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-yellow-50 p-6 rounded-lg">
+          <h2 className="text-2xl font-semibold mb-4">Static Export設定</h2>
+          <ul className="list-disc list-inside space-y-2">
+            <li><code>output: &lsquo;export&rsquo;</code> - Static HTML Export有効化</li>
+            <li><code>trailingSlash: true</code> - URL末尾スラッシュ有効化</li>
+            <li><code>images.unoptimized: true</code> - 画像最適化無効化</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
