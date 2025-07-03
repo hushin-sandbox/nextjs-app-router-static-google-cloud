@@ -1,0 +1,39 @@
+name: Deploy to Google Cloud Storage
+
+on:
+  push:
+    branches:
+      - main
+
+# ジョブの権限設定（OIDCトークンを発行するために必須）
+permissions:
+  contents: 'read'
+  id-token: 'write'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+
+      # Google Cloudへの認証
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v2'
+        with:
+          create_credentials_file: true
+          workload_identity_provider: 'projects/690786904077/locations/global/workloadIdentityPools/webapp-nextjs-example-gha-pool/providers/github'
+          service_account: 'github-actions-deployer@next-js-hosting-study.iam.gserviceaccount.com'
+
+      # gcloudコマンドでCloud Storageにデプロイ
+      - name: 'Deploy to Cloud Storage'
+        run: 'gcloud storage rsync --delete-unmatched-destination-objects --recursive out/ gs://webapp-nextjs-example'
