@@ -31,5 +31,8 @@ jobs:
           workload_identity_provider: 'projects/690786904077/locations/global/workloadIdentityPools/webapp-nextjs-example-gha-pool/providers/github'
           service_account: 'github-actions-deployer@next-js-hosting-study.iam.gserviceaccount.com'
 
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v2'
+
       - name: 'Deploy to Cloud Storage'
         run: 'gcloud storage rsync --delete-unmatched-destination-objects --recursive out/ gs://webapp-nextjs-example'
