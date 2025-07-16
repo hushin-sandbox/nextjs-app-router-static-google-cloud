@@ -12,17 +12,7 @@ Google Cloud での Next.js App Router static export 検証用プロジェクト
 
 ### Static Export 設定
 
-`next.config.ts` で以下の設定を使用：
-
-```typescript
-const nextConfig: NextConfig = {
-  output: 'export',
-  trailingSlash: true,
-  images: {
-    unoptimized: true,
-  },
-};
-```
+`next.config.ts` を参照
 
 ## 開発
 

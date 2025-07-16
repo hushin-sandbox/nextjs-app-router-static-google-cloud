@@ -103,7 +103,7 @@ export default function Home() {
               Export有効化
             </li>
             <li>
-              <code>trailingSlash: true</code> - URL末尾スラッシュ有効化
+              <code>trailingSlash: false</code> - URL末尾スラッシュ無効化
             </li>
             <li>
               <code>images.unoptimized: true</code> - 画像最適化無効化

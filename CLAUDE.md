@@ -27,8 +27,6 @@ npm run start    # プロダクションサーバー起動
 
 ### Static Export設定
 - `next.config.ts`で`output: 'export'`を設定
-- `trailingSlash: true`でURL末尾スラッシュ統一
-- `images.unoptimized: true`で画像最適化無効
 
 ### ディレクトリ構造
 - `src/app/` - App Routerベースのページ構造
